@@ -12,17 +12,17 @@ const publicRoutes = [
   {
     path: '/',
     component: layout,
-    redirect: '/profile',
+    redirect: '/dashboard',
     children: [
-      {
-        path: '/profile',
-        name: 'profile',
-        component: () => import('@/views/profile/index.vue'),
-        meta: {
-          title: '个人中心',
-          icon: 'user'
-        }
-      },
+      // {
+      //   path: '/profile',
+      //   name: 'profile',
+      //   component: () => import('@/views/profile/index.vue'),
+      //   meta: {
+      //     title: '个人中心',
+      //     icon: 'user'
+      //   }
+      // },
       {
         path: '/dashboard',
         name: 'dashboard',

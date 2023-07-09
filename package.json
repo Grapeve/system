@@ -20,6 +20,8 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "axios": "^1.4.0",
+    "default-passive-events": "^2.0.0",
+    "echarts": "^5.4.2",
     "element-plus": "^2.3.7",
     "husky": "^8.0.3",
     "less": "^4.1.3",
