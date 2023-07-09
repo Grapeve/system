@@ -29,7 +29,9 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Screenfull: typeof import('./src/components/Screenfull/index.vue')['default']
     SvgIcon: typeof import('./src/components/SvgIcon/index.vue')['default']
+    Tagsview: typeof import('./src/components/Tagsview/index.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
   }

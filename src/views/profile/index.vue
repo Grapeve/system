@@ -1,5 +1,7 @@
 <script setup></script>
 
-<template>个人中心</template>
+<template>
+  <div class="my-container">个人中心</div>
+</template>
 
 <style lang="less" scoped></style>

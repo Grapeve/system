@@ -23,6 +23,7 @@ specifiers:
   path-browserify: ^1.0.1
   pinia: ^2.1.3
   prettier: ^2.8.8
+  screenfull: ^6.0.2
   unplugin-auto-import: ^0.16.4
   unplugin-vue-components: ^0.25.1
   vite: ^4.3.9
@@ -38,6 +39,7 @@ dependencies:
   less: 4.1.3
   path-browserify: 1.0.1
   pinia: 2.1.4_vue@3.3.4
+  screenfull: 6.0.2
   vue: 3.3.4
   vue-router: 4.2.4_vue@3.3.4
 
@@ -3154,6 +3156,11 @@ packages:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
     dev: false
     optional: true
+
+  /screenfull/6.0.2:
+    resolution: {integrity: sha512-AQdy8s4WhNvUZ6P8F6PB21tSPIYKniic+Ogx0AacBMjKP1GUHN2E9URxQHtCusiwxudnCKkdy4GrHXPPJSkCCw==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    dev: false
 
   /scule/1.0.0:
     resolution: {integrity: sha512-4AsO/FrViE/iDNEPaAQlb77tf0csuq27EsVpy6ett584EcRTp6pTDLoGWVxCD77y5iU5FauOvhsI4o1APwPoSQ==}

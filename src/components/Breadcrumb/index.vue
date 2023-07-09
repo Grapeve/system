@@ -7,7 +7,7 @@ const route = useRoute()
 const breadcrumbData = ref([])
 const getBreadcrumbData = () => {
   breadcrumbData.value = route.matched.filter((item) => item.meta && item.meta.title)
-  console.log(breadcrumbData.value)
+  console.log('Breadcrumb:', breadcrumbData.value)
 }
 // 处理点击事件
 const router = useRouter()

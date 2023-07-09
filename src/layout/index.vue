@@ -2,6 +2,7 @@
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar/index.vue'
 import AppMain from './components/AppMain.vue'
+import TagsView from '@/components/Tagsview/index.vue'
 import { useAppStore } from '@/stores/app.js'
 const appStore = useAppStore()
 </script>
@@ -18,6 +19,8 @@ const appStore = useAppStore()
       <div class="fixed-header">
         <!-- 顶部的 navbar -->
         <Navbar />
+        <!-- tags -->
+        <TagsView />
       </div>
       <!-- 内容区 -->
       <AppMain />

@@ -1,6 +1,7 @@
 <script setup>
 import Hamburger from '@/components/Hamburger/index.vue'
 import Breadcrumb from '@/components/Breadcrumb/index.vue'
+import Screenfull from '@/components/Screenfull/index.vue'
 </script>
 
 <template>
@@ -8,6 +9,8 @@ import Breadcrumb from '@/components/Breadcrumb/index.vue'
     <Hamburger class="hamburger-container" />
     <Breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <!-- 全屏 -->
+      <Screenfull class="right-menu-item hover-effect"></Screenfull>
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -55,6 +58,13 @@ import Breadcrumb from '@/components/Breadcrumb/index.vue'
     &:hover {
       background: rgba(0, 0, 0, 0.1);
     }
+  }
+  .right-menu-item {
+    padding: 0 18px 0 0;
+  }
+  .screenfull-container {
+    display: flex;
+    place-items: center;
   }
 
   .right-menu {
