@@ -9,8 +9,8 @@ const toggleClick = () => {
 
 <template>
   <div class="hamburger-container" @click="toggleClick">
-    <el-icon :size="20" v-if="appStore.sidebarOpened"><Fold /></el-icon>
-    <el-icon :size="20" v-else><Expand /></el-icon>
+    <el-icon :size="25" v-if="appStore.sidebarOpened"><Fold /></el-icon>
+    <el-icon :size="25" v-else><Expand /></el-icon>
   </div>
 </template>
 

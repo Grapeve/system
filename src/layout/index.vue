@@ -40,6 +40,7 @@ const appStore = useAppStore()
   right: 0;
   z-index: 9;
   width: calc(100% - @sideBarWidth);
+  transition: width @sideBarDuration ease-in-out;
 }
 
 .hideSidebar .fixed-header {

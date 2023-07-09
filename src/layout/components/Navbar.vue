@@ -1,10 +1,12 @@
 <script setup>
 import Hamburger from '@/components/Hamburger/index.vue'
+import Breadcrumb from '@/components/Breadcrumb/index.vue'
 </script>
 
 <template>
   <div class="navbar">
     <Hamburger class="hamburger-container" />
+    <Breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -39,7 +41,9 @@ import Hamburger from '@/components/Hamburger/index.vue'
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-
+  .breadcrumb-container {
+    float: left;
+  }
   .hamburger-container {
     line-height: 46px;
     height: 100%;
