@@ -2,15 +2,19 @@
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar/index.vue'
 import AppMain from './components/AppMain.vue'
-// import { menuBg } from '@/styles/variables.less'
-// console.log(menuBg)
+import { useAppStore } from '@/stores/app.js'
+const appStore = useAppStore()
 </script>
 
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper" :class="[appStore.sidebarOpened ? 'openSidebar' : 'hideSidebar']">
     <!-- 左侧 menu -->
-    <Sidebar id="guide-sidebar" class="sidebar-container" style="background-color: #304156" />
-    <div class="main-container">
+    <Sidebar
+      id="guide-sidebar"
+      class="sidebar-container sidebar-width"
+      style="background-color: #304156"
+    />
+    <div class="main-container main-margin-left">
       <div class="fixed-header">
         <!-- 顶部的 navbar -->
         <Navbar />
@@ -36,5 +40,9 @@ import AppMain from './components/AppMain.vue'
   right: 0;
   z-index: 9;
   width: calc(100% - @sideBarWidth);
+}
+
+.hideSidebar .fixed-header {
+  width: calc(100% - @hideSideBarWidth);
 }
 </style>
