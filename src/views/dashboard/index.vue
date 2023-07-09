@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="">文章排名</div>
+  <div class="">大盘数据</div>
 </template>
 
 <style lang="less" scoped></style>

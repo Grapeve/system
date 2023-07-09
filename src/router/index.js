@@ -24,6 +24,15 @@ const publicRoutes = [
         }
       },
       {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: () => import('@/views/dashboard/index.vue'),
+        meta: {
+          title: '大盘数据',
+          icon: 'dashboard'
+        }
+      },
+      {
         path: '/404',
         name: '404',
         component: () => import('@/views/error-page/404.vue')
@@ -105,7 +114,7 @@ const privateRoutes = [
         path: '/article/:id',
         component: () => import('@/views/article-detail/index.vue'),
         meta: {
-          title: 'articleDetail'
+          title: '文章详情'
         }
       },
       {
@@ -120,7 +129,7 @@ const privateRoutes = [
         path: '/article/editor/:id',
         component: () => import('@/views/article-create/index.vue'),
         meta: {
-          title: 'articleEditor'
+          title: '编辑文章'
         }
       }
     ]
