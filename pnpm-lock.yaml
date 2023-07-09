@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@commitlint/cli': ^17.6.6
   '@commitlint/config-conventional': ^17.6.6
+  '@element-plus/icons-vue': ^2.1.0
   '@rushstack/eslint-patch': ^1.2.0
   '@vitejs/plugin-vue': ^4.2.3
   '@vue/eslint-config-prettier': ^7.1.0
@@ -29,6 +30,7 @@ specifiers:
   vue-router: ^4.2.2
 
 dependencies:
+  '@element-plus/icons-vue': 2.1.0_vue@3.3.4
   axios: 1.4.0
   element-plus: 2.3.7_vue@3.3.4
   husky: 8.0.3

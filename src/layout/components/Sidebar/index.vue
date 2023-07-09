@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <RouterView />
+  <div>Sidebar</div>
 </template>
 
 <style lang="less" scoped></style>
