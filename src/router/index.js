@@ -1,4 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createWebHashHistory } from 'vue-router'
+import { createRouter } from 'vue-router'
 import layout from '../layout/index.vue'
 
 /**
@@ -28,7 +29,7 @@ const publicRoutes = [
         name: 'dashboard',
         component: () => import('@/views/dashboard/index.vue'),
         meta: {
-          title: '大盘数据',
+          title: '仪表盘',
           icon: 'dashboard'
         }
       },
@@ -136,7 +137,8 @@ const privateRoutes = [
   }
 ]
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  // history: createWebHistory(import.meta.env.BASE_URL),
   routes: [...publicRoutes, ...privateRoutes]
 })
 

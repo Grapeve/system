@@ -1,29 +1,22 @@
 <script setup>
 import { defineProps, computed } from 'vue'
-import { isExternal as external } from '@/utils/validate.js'
 const props = defineProps({
   // icon图标
   icon: {
     type: String,
-    required: true
+    required: true,
+    default: 'burst'
   },
   // 图标类名
   className: {
     type: String,
     default: ''
+  },
+  color: {
+    type: String,
+    default: '#333'
   }
 })
-/**
- * 判断当前图标是否为外部图标
- */
-const isExternal = computed(() => external(props.icon))
-/**
- * 外部图标样式
- */
-const styleExternalIcon = computed(() => ({
-  mask: `url(${props.icon}) no-repeat 50% 50%`,
-  '-webkit-mask': `url(${props.icon}) no-repeat 50% 50%`
-}))
 /**
  * 内部图标
  */
@@ -31,16 +24,8 @@ const iconName = computed(() => `#icon-${props.icon}`)
 </script>
 
 <template>
-  <!-- 展示外部图标 -->
-  <div
-    v-if="isExternal"
-    :style="styleExternalIcon"
-    class="svg-external-icon svg-icon"
-    :class="className"
-  ></div>
-  <!-- 展示内部图标 -->
-  <svg v-else class="svg-icon" :class="className" aria-hidden="true">
-    <use :xlink:href="iconName"></use>
+  <svg class="svg-icon" :class="className" aria-hidden="true">
+    <use :href="iconName" :fill="color"></use>
   </svg>
 </template>
 

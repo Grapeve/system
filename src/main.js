@@ -15,6 +15,8 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 import 'default-passive-events'
 
+import 'virtual:svg-icons-register'
+
 const app = createApp(App)
 app.use(ElementPlus)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
