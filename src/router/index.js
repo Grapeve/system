@@ -51,86 +51,146 @@ const publicRoutes = [
  * 私有路由表
  */
 const privateRoutes = [
+  // {
+  //   path: '/user',
+  //   component: layout,
+  //   redirect: '/user/manage',
+  //   meta: {
+  //     title: '用户',
+  //     icon: 'personnel'
+  //   },
+  //   children: [
+  //     {
+  //       path: '/user/manage',
+  //       component: () => import('@/views/user-manage/index.vue'),
+  //       meta: {
+  //         title: '用户管理',
+  //         icon: 'personnel-manage'
+  //       }
+  //     },
+  //     {
+  //       path: '/user/role',
+  //       component: () => import('@/views/role-list/index.vue'),
+  //       meta: {
+  //         title: '用户列表',
+  //         icon: 'role'
+  //       }
+  //     },
+  //     {
+  //       path: '/user/permission',
+  //       component: () => import('@/views/permission-list/index.vue'),
+  //       meta: {
+  //         title: '权限列表',
+  //         icon: 'permission'
+  //       }
+  //     },
+  //     {
+  //       path: '/user/info/:id',
+  //       name: 'userInfo',
+  //       component: () => import('@/views/user-info/index.vue'),
+  //       meta: {
+  //         title: 'userInfo'
+  //       }
+  //     }
+  //   ]
+  // },
+  // {
+  //   path: '/article',
+  //   component: layout,
+  //   redirect: '/article/ranking',
+  //   meta: {
+  //     title: '文章',
+  //     icon: 'article'
+  //   },
+  //   children: [
+  //     {
+  //       path: '/article/ranking',
+  //       component: () => import('@/views/article-ranking/index.vue'),
+  //       meta: {
+  //         title: '文章排名',
+  //         icon: 'article-ranking'
+  //       }
+  //     },
+  //     {
+  //       path: '/article/:id',
+  //       component: () => import('@/views/article-detail/index.vue'),
+  //       meta: {
+  //         title: '文章详情'
+  //       }
+  //     },
+  //     {
+  //       path: '/article/create',
+  //       component: () => import('@/views/article-create/index.vue'),
+  //       meta: {
+  //         title: '创建文章',
+  //         icon: 'article-create'
+  //       }
+  //     },
+  //     {
+  //       path: '/article/editor/:id',
+  //       component: () => import('@/views/article-create/index.vue'),
+  //       meta: {
+  //         title: '编辑文章'
+  //       }
+  //     }
+  //   ]
+  // }
   {
-    path: '/user',
+    path: '/goods',
     component: layout,
-    redirect: '/user/manage',
+    redirect: '/goods/goodsList',
     meta: {
-      title: '用户',
-      icon: 'personnel'
+      title: '商品',
+      icon: 'goods'
     },
     children: [
       {
-        path: '/user/manage',
-        component: () => import('@/views/user-manage/index.vue'),
+        path: '/goods/goodsList',
+        component: () => import('@/views/goods-list/index.vue'),
         meta: {
-          title: '用户管理',
-          icon: 'personnel-manage'
+          title: '商品列表',
+          icon: 'goods-list'
         }
       },
       {
-        path: '/user/role',
-        component: () => import('@/views/role-list/index.vue'),
+        path: '/goods/:id',
+        component: () => import('@/views/goods-detail/index.vue'),
         meta: {
-          title: '用户列表',
-          icon: 'role'
+          title: '商品详情'
         }
       },
       {
-        path: '/user/permission',
-        component: () => import('@/views/permission-list/index.vue'),
+        path: '/goods/create',
+        component: () => import('@/views/goods-create/index.vue'),
         meta: {
-          title: '权限列表',
-          icon: 'permission'
-        }
-      },
-      {
-        path: '/user/info/:id',
-        name: 'userInfo',
-        component: () => import('@/views/user-info/index.vue'),
-        meta: {
-          title: 'userInfo'
+          title: '商品添加',
+          icon: 'goods-create'
         }
       }
     ]
   },
   {
-    path: '/article',
+    path: '/order',
     component: layout,
-    redirect: '/article/ranking',
+    redirect: '/order/orderList',
     meta: {
-      title: '文章',
-      icon: 'article'
+      title: '订单',
+      icon: 'order'
     },
     children: [
       {
-        path: '/article/ranking',
-        component: () => import('@/views/article-ranking/index.vue'),
+        path: '/order/orderList',
+        component: () => import('@/views/order-list/index.vue'),
         meta: {
-          title: '文章排名',
-          icon: 'article-ranking'
+          title: '订单列表',
+          icon: 'order-list'
         }
       },
       {
-        path: '/article/:id',
-        component: () => import('@/views/article-detail/index.vue'),
+        path: '/order/:id',
+        component: () => import('@/views/order-detail/index.vue'),
         meta: {
-          title: '文章详情'
-        }
-      },
-      {
-        path: '/article/create',
-        component: () => import('@/views/article-create/index.vue'),
-        meta: {
-          title: '创建文章',
-          icon: 'article-create'
-        }
-      },
-      {
-        path: '/article/editor/:id',
-        component: () => import('@/views/article-create/index.vue'),
-        meta: {
-          title: '编辑文章'
+          title: '订单详情'
         }
       }
     ]
