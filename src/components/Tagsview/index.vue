@@ -28,8 +28,8 @@ const onCloseClick = (index) => {
       :key="tag.fullPath"
       :to="{ path: tag.fullPath }"
       :style="{
-        backgroundColor: isActive(tag) ? '#304156' : '',
-        borderColor: isActive(tag) ? '#304156' : ''
+        backgroundColor: isActive(tag) ? '#4e88f3' : '',
+        borderColor: isActive(tag) ? '#4e88f3' : ''
       }"
     >
       {{ tag.title }}
@@ -74,6 +74,7 @@ const onCloseClick = (index) => {
     }
     &.active {
       color: #fff;
+      height: 26px !important;
       &::before {
         content: '';
         background: #fff;
@@ -91,7 +92,7 @@ const onCloseClick = (index) => {
       height: 16px;
       line-height: 10px;
       vertical-align: 2px;
-      margin-top: 0;
+      margin-top: 1px;
       margin-left: 4px;
       border-radius: 50%;
       text-align: center;
