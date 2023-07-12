@@ -1,7 +1,0 @@
-<script setup></script>
-
-<template>
-  <div class="">文章排名</div>
-</template>
-
-<style lang="less" scoped></style>

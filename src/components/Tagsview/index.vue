@@ -28,8 +28,8 @@ const onCloseClick = (index) => {
       :key="tag.fullPath"
       :to="{ path: tag.fullPath }"
       :style="{
-        backgroundColor: isActive(tag) ? '#4e88f3' : '',
-        borderColor: isActive(tag) ? '#4e88f3' : ''
+        backgroundColor: isActive(tag) ? '#409eff' : '',
+        borderColor: isActive(tag) ? '#409eff' : ''
       }"
     >
       {{ tag.title }}
