@@ -1,111 +1,3 @@
-<template>
-  <div class="">订单列表</div>
-  <el-card class="order-container">
-    <template #header>
-      <div class="header">
-        <el-input
-          style="width: 200px; margin-right: 10px"
-          placeholder="请输入订单号"
-          v-model="state.orderNo"
-          @change="handleOption"
-          clearable
-        />
-        <el-select
-          @change="handleOption"
-          v-model="state.orderStatus"
-          style="width: 200px; margin-right: 10px"
-        >
-          <el-option
-            v-for="item in state.options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          />
-        </el-select>
-        <!-- <el-button type="primary" size="small" icon="el-icon-edit">修改订单</el-button> -->
-        <el-button type="primary" :icon="HomeFilled" @click="handleConfig()">配货完成</el-button>
-        <el-button type="primary" :icon="HomeFilled" @click="handleSend()">出库</el-button>
-        <el-button type="danger" :icon="Delete" @click="handleClose()">关闭订单</el-button>
-      </div>
-    </template>
-    <el-table
-      :load="state.loading"
-      :data="state.tableData"
-      tooltip-effect="dark"
-      style="width: 100%; margin: 1rem 0"
-      @selection-change="handleSelectionChange"
-    >
-      <el-table-column type="selection" width="55"> </el-table-column>
-      <el-table-column prop="orderNo" label="订单号"> </el-table-column>
-      <el-table-column prop="totalPrice" label="订单总价"> </el-table-column>
-      <el-table-column prop="orderStatus" label="订单状态">
-        <template #default="scope">
-          <span>{{ orderStatus[scope.row.orderStatus] }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column prop="payType" label="支付方式">
-        <template #default="scope">
-          <span v-if="scope.row.payType == 1">微信支付</span>
-          <span v-else-if="scope.row.payType == 2">支付宝支付</span>
-          <span v-else>未知</span>
-        </template>
-      </el-table-column>
-      <el-table-column prop="createTime" label="创建时间"> </el-table-column>
-      <el-table-column label="操作">
-        <template #default="scope">
-          <el-popconfirm
-            v-if="scope.row.orderStatus == 1"
-            title="确定配货完成吗？"
-            @confirm="handleConfig(scope.row.orderId)"
-            confirm-button-text="确定"
-            cancel-button-text="取消"
-          >
-            <template #reference>
-              <a style="cursor: pointer; margin-right: 10px">配货完成</a>
-            </template>
-          </el-popconfirm>
-          <el-popconfirm
-            v-if="scope.row.orderStatus == 2"
-            title="确定出库吗？"
-            @confirm="handleSend(scope.row.orderId)"
-            confirm-button-text="确定"
-            cancel-button-text="取消"
-          >
-            <template #reference>
-              <a style="cursor: pointer; margin-right: 10px">出库</a>
-            </template>
-          </el-popconfirm>
-          <el-popconfirm
-            v-if="!(scope.row.orderStatus == 4 || scope.row.orderStatus < 0)"
-            title="确定关闭订单吗？"
-            @confirm="handleClose(scope.row.orderId)"
-            confirm-button-text="确定"
-            cancel-button-text="取消"
-          >
-            <template #reference>
-              <el-button style="margin-right: 10px; background-color: #409eff; color: white"
-                >关闭订单</el-button
-              >
-            </template>
-          </el-popconfirm>
-          <el-button style="margin-right: 10px; background-color: #409eff; color: white">
-            <router-link :to="{ path: '/order_detail', query: { id: scope.row.orderId } }"
-              >订单详情</router-link
-            ></el-button
-          >
-        </template>
-      </el-table-column>
-    </el-table>
-    <el-pagination
-      background
-      layout="prev, pager, next"
-      :total="state.total"
-      :page-size="state.pageSize"
-      :current-page="state.currentPage"
-      @current-change="changePage"
-    />
-  </el-card>
-</template>
 <script setup>
 import { onMounted, reactive } from 'vue'
 import { ElMessage } from 'element-plus'
@@ -274,6 +166,114 @@ const handleClose = (id) => {
     })
 }
 </script>
+
+<template>
+  <el-card class="order-container">
+    <template #header>
+      <div class="header">
+        <el-input
+          style="width: 200px; margin-right: 10px"
+          placeholder="请输入订单号"
+          v-model="state.orderNo"
+          @change="handleOption"
+          clearable
+        />
+        <el-select
+          @change="handleOption"
+          v-model="state.orderStatus"
+          style="width: 200px; margin-right: 10px"
+        >
+          <el-option
+            v-for="item in state.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
+        <!-- <el-button type="primary" size="small" icon="el-icon-edit">修改订单</el-button> -->
+        <el-button type="primary" :icon="HomeFilled" @click="handleConfig()">配货完成</el-button>
+        <el-button type="primary" :icon="HomeFilled" @click="handleSend()">出库</el-button>
+        <el-button type="danger" :icon="Delete" @click="handleClose()">关闭订单</el-button>
+      </div>
+    </template>
+    <el-table
+      :load="state.loading"
+      :data="state.tableData"
+      tooltip-effect="dark"
+      style="width: 100%; margin: 1rem 0"
+      @selection-change="handleSelectionChange"
+    >
+      <el-table-column type="selection" width="55"> </el-table-column>
+      <el-table-column prop="orderNo" label="订单号"> </el-table-column>
+      <el-table-column prop="totalPrice" label="订单总价"> </el-table-column>
+      <el-table-column prop="orderStatus" label="订单状态">
+        <template #default="scope">
+          <span>{{ orderStatus[scope.row.orderStatus] }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="payType" label="支付方式">
+        <template #default="scope">
+          <span v-if="scope.row.payType == 1">微信支付</span>
+          <span v-else-if="scope.row.payType == 2">支付宝支付</span>
+          <span v-else>未知</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="createTime" label="创建时间"> </el-table-column>
+      <el-table-column label="操作" width="235">
+        <template #default="scope">
+          <el-popconfirm
+            v-if="scope.row.orderStatus == 1"
+            title="确定配货完成吗？"
+            @confirm="handleConfig(scope.row.orderId)"
+            confirm-button-text="确定"
+            cancel-button-text="取消"
+          >
+            <template #reference>
+              <a style="cursor: pointer; margin-right: 10px">配货完成</a>
+            </template>
+          </el-popconfirm>
+          <el-popconfirm
+            v-if="scope.row.orderStatus == 2"
+            title="确定出库吗？"
+            @confirm="handleSend(scope.row.orderId)"
+            confirm-button-text="确定"
+            cancel-button-text="取消"
+          >
+            <template #reference>
+              <a style="cursor: pointer; margin-right: 10px">出库</a>
+            </template>
+          </el-popconfirm>
+          <el-popconfirm
+            v-if="!(scope.row.orderStatus == 4 || scope.row.orderStatus < 0)"
+            title="确定关闭订单吗？"
+            @confirm="handleClose(scope.row.orderId)"
+            confirm-button-text="确定"
+            cancel-button-text="取消"
+          >
+            <template #reference>
+              <el-button style="margin-right: 10px; background-color: #409eff; color: white"
+                >关闭订单</el-button
+              >
+            </template>
+          </el-popconfirm>
+          <el-button style="margin-right: 10px; background-color: #409eff; color: white">
+            <router-link :to="{ path: `/order/orderList/${scope.row.orderId}` }"
+              >订单详情</router-link
+            ></el-button
+          >
+        </template>
+      </el-table-column>
+    </el-table>
+    <el-pagination
+      background
+      layout="prev, pager, next"
+      :total="state.total"
+      :page-size="state.pageSize"
+      :current-page="state.currentPage"
+      @current-change="changePage"
+    />
+  </el-card>
+</template>
 
 <style lang="less" scoped>
 .order-container {

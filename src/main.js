@@ -6,11 +6,14 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
+// 导入路由鉴权
+import './permission'
+
 // 初始化样式表
 import './styles/index.less'
 
 import ElementPlus from 'element-plus'
-// import 'element-plus/dist/index.css'
+import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 import 'default-passive-events'

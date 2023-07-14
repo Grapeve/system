@@ -2,9 +2,12 @@
   <div class="login-body">
     <div class="login-container">
       <div class="head">
-        <img class="logo" src="https://s.yezgea02.com/1582958061265/mlogo.png" />
+        <img
+          class="logo"
+          src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+        />
         <div class="name">
-          <div class="tips">Vue3.0 后台管理系统</div>
+          <div class="tips">电商管理系统</div>
         </div>
       </div>
       <el-form
@@ -19,6 +22,7 @@
             type="text"
             v-model.trim="state.ruleForm.username"
             autocomplete="off"
+            placeholder="admin"
           ></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
@@ -26,11 +30,11 @@
             type="password"
             v-model.trim="state.ruleForm.password"
             autocomplete="off"
+            placeholder="123456"
           ></el-input>
         </el-form-item>
         <el-form-item>
           <el-button style="width: 100%" type="primary" @click="submitForm">立即登录</el-button>
-          <el-checkbox v-model="state.checked" @change="!state.checked">下次自动登录</el-checkbox>
         </el-form-item>
       </el-form>
     </div>
@@ -48,7 +52,6 @@ const state = reactive({
     username: '',
     password: ''
   },
-  checked: true,
   rules: {
     username: [{ required: 'true', message: '账户不能为空', trigger: 'blur' }],
     password: [{ required: 'true', message: '密码不能为空', trigger: 'blur' }]
@@ -72,16 +75,14 @@ const submitForm = async () => {
     }
   })
 }
-const resetForm = () => {
-  loginForm.value.resetFields()
-}
 </script>
 
 <style scoped>
 .login-body {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  place-content: center;
+  place-items: center;
   width: 100%;
   background-color: #fff;
 }
@@ -109,17 +110,24 @@ const resetForm = () => {
   font-weight: bold;
 }
 .head .tips {
-  font-size: 12px;
+  font-size: 24px;
   color: #999;
+}
+.head .logo {
+  border-radius: 10%;
 }
 .login-form {
   width: 70%;
   margin: 0 auto;
 }
-.login-form >>> .el-form--label-top .el-form-item__label {
-  padding: 0;
+.login-form {
+  :deep(.el-form--label-top .el-form-item__label) {
+    padding: 0;
+  }
 }
-.login-form >>> .el-form-item {
-  margin-bottom: 0;
+.login-form {
+  :deep(.el-form-item) {
+    margin-bottom: 0;
+  }
 }
 </style>

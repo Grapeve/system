@@ -1,6 +1,9 @@
+<!-- eslint-disable no-undef -->
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import goodsInfo from '@/json/goods.json'
+import { useGoodsStore } from '@/stores/goods.js'
+const goodsStore = useGoodsStore()
 
 const state = ref({
   // 商品列表
@@ -15,15 +18,35 @@ const state = ref({
   currentPage: 1
 })
 
+// 切换页数
 const changePage = (val) => {
   state.value.currentPage = val
+}
+
+// 修改商品信息
+const handleEdit = (id) => {
+  console.log(id)
+}
+
+// 修改上下架状态
+const handleSellStatus = (id, status) => {
+  const goodsIndex = goodsStore.goodsList.findIndex((goods) => {
+    return goods.id == id
+  })
+  goodsStore.goodsList[goodsIndex].goodsSellStatus = status
+  ElMessage({
+    message: '修改状态成功',
+    type: 'success'
+  })
 }
 
 // 获取商品列表
 const getGoodsList = () => {
   // 模拟获取商品数据
-  state.value.allGoods = goodsInfo.data
+  goodsStore.goodsList = goodsInfo.data
+  state.value.allGoods = goodsStore.goodsList
 }
+
 onMounted(() => {
   getGoodsList()
 })
@@ -32,16 +55,18 @@ onMounted(() => {
   <el-card class="goodsList-card">
     <template #header>
       <div class="header">
-        <el-button type="primary">添加商品</el-button>
+        <router-link to="/goods/create">
+          <el-button type="primary">添加商品</el-button>
+        </router-link>
       </div>
     </template>
     <el-table
       :data="state.allGoods.slice((state.currentPage - 1) * 5, (state.currentPage - 1) * 5 + 5)"
       style="width: 100%"
     >
-      <el-table-column prop="id" label="商品编号"> </el-table-column>
-      <el-table-column prop="goodsName" label="商品名"> </el-table-column>
-      <el-table-column prop="goodsIntro" label="商品简介"></el-table-column>
+      <el-table-column prop="id" label="商品编号" width="80"> </el-table-column>
+      <el-table-column prop="goodsName" label="商品名" width="80"> </el-table-column>
+      <el-table-column prop="goodsIntro" label="商品简介" width="240"></el-table-column>
       <el-table-column label="商品图片" width="150px">
         <template #default="scope">
           <img
@@ -76,7 +101,9 @@ onMounted(() => {
       <el-table-column label="操作" width="160px">
         <template #default="scope">
           <el-button type="primary" style="cursor: pointer" @click="handleEdit(scope.row.id)">
-            修改
+            <router-link :to="{ name: 'goodsCreate', params: { id: `${scope.row.id}` } }"
+              >修改</router-link
+            >
           </el-button>
           <el-button
             v-if="scope.row.goodsSellStatus === 0"

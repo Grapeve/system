@@ -166,6 +166,14 @@ const privateRoutes = [
           title: '商品添加',
           icon: 'goods-create'
         }
+      },
+      {
+        path: '/goods/create/:id',
+        name: 'goodsCreate',
+        component: () => import('@/views/goods-create/index.vue'),
+        meta: {
+          title: '商品修改'
+        }
       }
     ]
   },
@@ -187,7 +195,7 @@ const privateRoutes = [
         }
       },
       {
-        path: '/order/:id',
+        path: '/order/orderList/:id',
         component: () => import('@/views/order-detail/index.vue'),
         meta: {
           title: '订单详情'

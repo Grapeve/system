@@ -2,6 +2,15 @@
 import Hamburger from '@/components/Hamburger/index.vue'
 import Breadcrumb from '@/components/Breadcrumb/index.vue'
 import Screenfull from '@/components/Screenfull/index.vue'
+import { useRouter } from 'vue-router'
+import { localSet } from '@/utils/index.js'
+
+const router = useRouter()
+// 退出登录
+const logout = () => {
+  localSet('token', '')
+  router.push('/login')
+}
 </script>
 
 <template>
@@ -23,13 +32,13 @@ import Screenfull from '@/components/Screenfull/index.vue'
         </div>
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
-            <router-link to="/">
-              <el-dropdown-item>下拉菜单</el-dropdown-item>
+            <!-- <router-link to="/">
+              <el-dropdown-item>回到首页</el-dropdown-item>
             </router-link>
             <a target="_blank">
-              <el-dropdown-item>下拉菜单</el-dropdown-item>
-            </a>
-            <el-dropdown-item divided>退出登录</el-dropdown-item>
+              <el-dropdown-item> xxxxxxx </el-dropdown-item>
+            </a> -->
+            <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
