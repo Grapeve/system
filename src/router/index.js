@@ -13,7 +13,7 @@ const publicRoutes = [
   {
     path: '/',
     component: layout,
-    redirect: '/dashboard',
+    redirect: '/goods',
     children: [
       // {
       //   path: '/profile',
