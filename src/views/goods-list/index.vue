@@ -101,7 +101,7 @@ onMounted(() => {
       <el-table-column label="操作" width="160px">
         <template #default="scope">
           <el-button type="primary" style="cursor: pointer" @click="handleEdit(scope.row.id)">
-            <router-link :to="{ name: 'goodsCreate', params: { id: `${scope.row.id}` } }"
+            <router-link :to="{ name: 'goodsModify', params: { id: `${scope.row.id}` } }"
               >修改</router-link
             >
           </el-button>

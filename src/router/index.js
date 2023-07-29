@@ -168,8 +168,8 @@ const privateRoutes = [
         }
       },
       {
-        path: '/goods/create/:id',
-        name: 'goodsCreate',
+        path: '/goods/modify/:id',
+        name: 'goodsModify',
         component: () => import('@/views/goods-create/index.vue'),
         meta: {
           title: '商品修改'
