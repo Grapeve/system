@@ -20,7 +20,7 @@ defineProps({
     <SidebarItem v-for="item in route.children" :key="item.path" :route="item"></SidebarItem>
   </el-sub-menu>
   <!-- 渲染 item 项 -->
-  <el-menu-item v-else :index="route.path" style="margin-left: -5px">
+  <el-menu-item v-else :index="route.path" style="margin-left: -5px" class="custom-item">
     <MenuItem :title="route.meta.title" :icon="route.meta.icon"></MenuItem>
   </el-menu-item>
 </template>

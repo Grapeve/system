@@ -63,7 +63,7 @@ watch(
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding: 102px 20px 20px 20px;
+  padding: 110px 20px 20px 20px;
   box-sizing: border-box;
 }
 /* fade-transform */

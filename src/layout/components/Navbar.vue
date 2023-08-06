@@ -65,7 +65,7 @@ const logout = () => {
     transition: background 0.5s;
 
     &:hover {
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0);
     }
   }
   .right-menu-item {

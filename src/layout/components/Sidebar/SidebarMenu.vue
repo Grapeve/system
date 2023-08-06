@@ -15,18 +15,37 @@ console.log(routes.value)
 </script>
 
 <template>
-  <!-- 一级 menu 菜单 -->
+  <!-- 一级 menu 菜单 #304156 #bfcbd9 -->
   <el-menu
     :collapse="!appStore.sidebarOpened"
     default-active="2"
-    :unique-opened="true"
-    background-color="#304156"
-    text-color="#bfcbd9"
-    active-text-color="#ffffff"
+    :unique-opened="false"
+    background-color="#0f172a"
+    text-color="#ffffff"
+    active-text-color="#000000"
     router
+    class="el-menu-custom"
   >
     <SidebarItem v-for="item in routes" :key="item.path" :route="item"></SidebarItem>
   </el-menu>
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.el-menu-custom {
+  :deep(.is-active) {
+    background-color: #ddd6fe;
+    font-weight: 600;
+  }
+  :deep(.el-menu-item) {
+    height: 40px;
+    // width: 200px;
+    // border-radius: 0.5rem;
+  }
+  :deep(.el-sub-menu__title) {
+    height: 45px;
+  }
+  :deep(.el-menu--inline) {
+    // padding-left: 15px;
+  }
+}
+</style>
