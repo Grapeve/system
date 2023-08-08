@@ -1,6 +1,8 @@
 <script setup>
+import { ref, reactive, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useAppStore } from '@/stores/app.js'
+import ContextMenu from './ContextMenu.vue'
 const appStore = useAppStore()
 const route = useRoute()
 
@@ -17,6 +19,42 @@ const isActive = (tag) => {
 const onCloseClick = (index) => {
   appStore.removeTagsViewList(index)
 }
+
+/**
+ * * 2.contextMenu 相关
+ */
+const selectIndex = ref(0)
+const visible = ref(false)
+const menuStyle = reactive({
+  left: 0,
+  top: 0
+})
+/**
+ * * 2.1 展示 menu
+ */
+const openMenu = (e, index) => {
+  const { x, y } = e
+  menuStyle.left = x + 'px'
+  menuStyle.top = y + 'px'
+  selectIndex.value = index
+  visible.value = true
+}
+/**
+ * * 2.2 关闭 menu
+ */
+const closeMenu = () => {
+  visible.value = false
+}
+/**
+ * * 2.3 监听变化
+ */
+watch(visible, (val) => {
+  if (val) {
+    document.body.addEventListener('click', closeMenu)
+  } else {
+    document.body.removeEventListener('click', closeMenu)
+  }
+})
 </script>
 
 <template>
@@ -31,6 +69,7 @@ const onCloseClick = (index) => {
         backgroundColor: isActive(tag) ? '#409eff' : '',
         borderColor: isActive(tag) ? '#409eff' : ''
       }"
+      @contextmenu.prevent="openMenu($event, index)"
     >
       {{ tag.title }}
       <el-icon
@@ -41,6 +80,7 @@ const onCloseClick = (index) => {
         ><CircleClose
       /></el-icon>
     </router-link>
+    <ContextMenu v-show="visible" :style="menuStyle" :index="selectIndex"> </ContextMenu>
   </div>
 </template>
 

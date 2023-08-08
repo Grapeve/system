@@ -69,7 +69,7 @@ watch(
 /* fade-transform */
 .fade-transform-leave-active,
 .fade-transform-enter-active {
-  transition: all 0.25s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .fade-transform-enter-from {
