@@ -21,8 +21,8 @@ console.log(routes.value)
     default-active="2"
     :unique-opened="false"
     background-color="#0f172a"
-    text-color="#ffffff"
-    active-text-color="#000000"
+    text-color="#bfcbd9"
+    active-text-color="#ffffff"
     router
     class="el-menu-custom"
   >
@@ -33,8 +33,8 @@ console.log(routes.value)
 <style lang="less" scoped>
 .el-menu-custom {
   :deep(.is-active) {
-    background-color: #ddd6fe;
-    font-weight: 600;
+    // background-color: #ddd6fe;
+    // font-weight: 600;
   }
   :deep(.el-menu-item) {
     height: 40px;

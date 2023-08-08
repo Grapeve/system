@@ -16,11 +16,13 @@ const appStore = useAppStore()
       style="background-color: #ffffff"
     />
     <div class="main-container main-margin-left">
-      <div class="fixed-header">
+      <div class="fixed-header-cover">
         <!-- 顶部的 navbar -->
-        <Navbar />
-        <!-- tags -->
-        <TagsView />
+        <div class="fixed-header">
+          <Navbar />
+          <!-- tags -->
+          <TagsView />
+        </div>
       </div>
       <!-- 内容区 -->
       <AppMain />
@@ -40,7 +42,14 @@ const appStore = useAppStore()
 .sidebar-container {
   background-color: #0f172a !important;
 }
-
+.fixed-header-cover {
+  position: fixed;
+  top: 0px;
+  z-index: 8;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+}
 .fixed-header {
   position: fixed;
   top: 15px;
