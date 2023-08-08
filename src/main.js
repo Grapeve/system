@@ -20,11 +20,14 @@ import 'default-passive-events'
 
 import 'virtual:svg-icons-register'
 
+// pinia持久化
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
 const app = createApp(App)
 app.use(ElementPlus)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
-app.use(createPinia())
+app.use(createPinia().use(piniaPluginPersistedstate))
 app.use(router)
 app.mount('#app')
