@@ -18,7 +18,7 @@ const initRender = async () => {
   const carContainer = new PIXI.Container()
 
   // 背景
-  const carTexture = PIXI.Texture.from('./src/assets/textures/car.jpg')
+  const carTexture = PIXI.Texture.from('/textures/car.jpg')
   const carSprite = new PIXI.Sprite(carTexture)
   carSprite.width = app.screen.width
   carSprite.height = app.screen.height
@@ -41,7 +41,7 @@ const initRender = async () => {
   carContainer.addChild(carText)
 
   // 置换滤镜
-  const displacementSprite = PIXI.Sprite.from('./src/assets/textures/displacement.jpg')
+  const displacementSprite = PIXI.Sprite.from('/textures/displacement.jpg')
   displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT
   displacementSprite.scale.set(0.5)
   carContainer.addChild(displacementSprite)
