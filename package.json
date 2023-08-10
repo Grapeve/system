@@ -49,6 +49,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.15.1",
     "lint-staged": "^13.2.3",
+    "pixi-filters": "^5.2.1",
+    "pixi.js": "^7.2.4",
     "prettier": "^2.8.8",
     "unplugin-auto-import": "^0.16.4",
     "unplugin-vue-components": "^0.25.1",

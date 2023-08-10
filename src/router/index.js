@@ -16,6 +16,15 @@ const publicRoutes = [
     redirect: '/goods',
     children: [
       {
+        path: '/pixi',
+        name: 'pixi',
+        component: () => import('@/views/pixi/index.vue'),
+        meta: {
+          title: 'Pixi',
+          icon: 'pixi'
+        }
+      },
+      {
         path: '/blockchain',
         name: 'blockchain',
         component: () => import('@/views/blockchain/index.vue'),
