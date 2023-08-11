@@ -94,7 +94,7 @@ onMounted(() => {
   <div ref="pixiRef">
     <el-card class="pixi-card" id="pixi">
       <el-button type="primary" @click="console.log(pixiRef.offsetWidth, pixiRef.offsetHeight)"
-        >查看宽高</el-button
+        >波浪特效</el-button
       >
     </el-card>
   </div>
