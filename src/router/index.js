@@ -17,12 +17,31 @@ const publicRoutes = [
     children: [
       {
         path: '/pixi',
-        name: 'pixi',
-        component: () => import('@/views/pixi/index.vue'),
+        redirect: '/pixi-page',
         meta: {
           title: 'Pixi',
           icon: 'pixi'
-        }
+        },
+        children: [
+          {
+            path: '/pixi-game',
+            name: 'pixi-game',
+            component: () => import('@/views/pixi/index.vue'),
+            meta: {
+              title: 'Pixi-game',
+              icon: 'pixi-game'
+            }
+          },
+          {
+            path: '/pixi-page',
+            name: 'pixi-page',
+            component: () => import('@/views/pixi/Pixi 波浪特效水滴主页.vue'),
+            meta: {
+              title: 'Pixi-page',
+              icon: 'pixi-page'
+            }
+          }
+        ]
       },
       {
         path: '/blockchain',
