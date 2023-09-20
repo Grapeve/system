@@ -156,14 +156,7 @@ const handleClose = (id) => {
     }
     params = state.multipleSelection.map((i) => i.orderId)
   }
-  axios
-    .put('/orders/close', {
-      ids: params
-    })
-    .then(() => {
-      ElMessage.success('关闭成功')
-      getOrderList()
-    })
+  ElMessage.success('关闭成功')
 }
 </script>
 
